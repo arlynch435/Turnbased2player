@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=contestents
+comment0.target=Console(Player[])
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Console\r\n
+comment1.params=
+comment1.target=void\ changePlayer()
+comment1.text=\r\n\ Changes\ the\ turn\ to\ the\ next\ player\r\n
+comment2.params=
+comment2.target=void\ performAction()
+comment2.text=\r\n\ runs\ the\ action\ with\ the\ current\ player,\ then\ changes\ player\ and\ checks\ if\ win\ or\ tie\ conditions\ are\ fullfilled\r\n
+comment3.params=
+comment3.target=Player\ findWinner()
+comment3.text=\r\n\ Finds\ out\ if\ either\ player\ has\ fullfilled\ the\ win\ condition\ (defined\ here)\r\n
+comment4.params=
+comment4.target=boolean\ isTie()
+comment4.text=\r\n\ Finds\ out\ if\ tie\ condition\ is\ fullfilled\ (defined\ here)\r\n
+comment5.params=
+comment5.target=void\ winGame()
+comment5.text=\r\n\ Performs\ the\ action\ only\ performed\ when\ a\ player\ wins\r\n
+comment6.params=
+comment6.target=void\ tieGame()
+comment6.text=\r\n\ Performs\ the\ action\ when\ players\ tie\r\n
+numComments=7

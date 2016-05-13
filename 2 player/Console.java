@@ -3,38 +3,72 @@
 /**
  * Write a description of class Console here.
  * 
- * @author (your name) 
+ * @author Austin Lynch 
  * @version (a version number or a date)
  */
-public class Console
+public abstract class Console
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    /** the player currently in action */
+    private Player activePlayer;
+    /** the roster of players (should only have 2) */
+    private Player[] roster;
+    /** the index of the current player*/
+    private int current;
+    /** the state of the game */
+    private boolean gameRunning;
 
     /**
      * Default constructor for objects of class Console
      */
-    public Console()
+    public Console(Player[]contestents)
     {
         // initialise instance variables
-        x = 0;
+        this.roster=contestents;
+        this.current=0;
+        this.gameRunning=true;
     }
-
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * Changes the turn to the next player
      */
-    public int sampleMethod(int y)
+    public void changePlayer()
     {
         // put your code here
-        return x+y;
+        this.activePlayer=this.roster[(this.current+1)%2];
     }
+    /**
+     * runs the action with the current player, then changes player and checks if win or tie conditions are fullfilled
+     */
+    public void performAction()
+    {
+        this.activePlayer.action();
+        if (this.findWinner()==null)
+            {this.changePlayer();}
+        else if (this.isTie())
+        {
+            this.tieGame();
+            this.gameRunning=false;
+        }
+        else
+        {
+            this.winGame();
+            this.gameRunning=false;
+        }
+    }
+    /**
+     * Finds out if either player has fullfilled the win condition (defined here)
+     */
+    public abstract Player findWinner();
+    /**
+     * Finds out if tie condition is fullfilled (defined here)
+     */
+    public abstract boolean isTie();
+    /**
+     * Performs the action only performed when a player wins
+     */
+    public abstract void winGame();
+    /**
+     * Performs the action when players tie
+     */
+    public abstract void tieGame();
 
 }

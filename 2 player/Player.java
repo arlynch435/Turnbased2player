@@ -3,12 +3,12 @@
 /**
  * Write a description of class Player here.
  * 
- * @author (your name) 
+ * @author Austin Lynch
  * @version (a version number or a date)
  */
 public abstract class Player
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    /** name of the player */
     private String name;
 
     /**
